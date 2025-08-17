@@ -19,4 +19,5 @@ Made because I don't like javascript and I like python.
    ```
 4. Open your browser and go to `http://localhost:80`
 
-#
+> [!NOTE]  
+> When configuring you're firewall only forward port 80 (or 443 if using tls) and do not expose the api.
