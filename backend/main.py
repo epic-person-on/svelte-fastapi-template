@@ -1,15 +1,11 @@
-from typing import Union
-
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from fastapi_throttle import RateLimiter
 
 app = FastAPI()
 
+# Limit to 5 requests per minute
+limiter = RateLimiter(times=5, seconds=60)
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/", dependencies=[Depends(limiter)])
+async def root():
+    return {"message": "Hello World"}
