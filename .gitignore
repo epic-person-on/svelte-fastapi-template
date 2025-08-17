@@ -22,6 +22,7 @@ yarn-error.log*
 # Svelte
 __sapper__/
 .svelte-kit/
+build
 
 # TypeScript
 *.tsbuildinfo
@@ -31,6 +32,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 .venv
+requirements.txt
 
 # IDEs and editors
 .vscode/
